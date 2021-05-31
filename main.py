@@ -15,15 +15,6 @@ from datetime import timedelta
 app = Flask(__name__)
 api = Api(app)
 
-class HelloWorld(Resource):
-    def get(self):
-        return {
-            "data":{
-                "date": "2019-12-18",
-                "prediction": "69.934998"
-            }
-        }
-
 class prediction(Resource):
     def get(self):
         
@@ -64,11 +55,6 @@ class prediction(Resource):
                 "prediction": str(pred_price[0][0])
             }
         }
-
-        """return {
-            "start_date": request.args.get('start_date'),
-            "end_date": request.args.get('end_date')
-        } """
 
 api.add_resource(HelloWorld, "/helloworld")
 api.add_resource(prediction, "/predict")
