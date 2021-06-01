@@ -27,7 +27,7 @@ class prediction(Resource):
             print(dataset)
             end_date = request.args.get('end_date')
 
-            date = datetime.strptime(end_date, "%Y-%m-%d")
+            date = datetime.strptime(end_date, "%Y-%m-%d").date()
             date = date + timedelta(days=1)
 
             model = load_model(dataset, compile = False)
@@ -86,5 +86,3 @@ api.add_resource(prediction, "/predict")
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-#http://127.0.0.1:5000/predict?start_date=2009-01-01&end_date=2021-01-01
