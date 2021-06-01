@@ -56,7 +56,7 @@ class prediction(Resource):
             pred_price = scaler.inverse_transform(pred_price)
             print(pred_price[0][0])
 
-            present = datetime.now()
+            present = datetime.now().date()
 
             actual = None
             try:
